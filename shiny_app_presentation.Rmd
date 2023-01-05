@@ -1,0 +1,65 @@
+---
+title: "Shiny App Presentation"   
+author: "fg"
+date: "2022-12-05"
+output:
+  ioslides_presentation:
+    css: styles.css
+    incremental: true
+    widescreen: true
+    smaller: true
+  beamer_presentation: default
+  slidy_presentation: default
+always_allow_html: yes  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	fig.align = "center",
+	message = FALSE,
+	warning = FALSE,
+	comment = "."
+)
+```
+
+
+
+## Description of the Shiny App
+
+This is the course project for the 9th course of the JHU Data Science specialization: Shiny Application and Reproducible Pitch.
+
+The aim of this app is to let the user find out about the type of pathogens affecting some infectious syndromes, such as bloodstream infections as a cause of death.
+
+The app provides the rate of deaths and the YLLs (years of life lost) due to infectious syndromes and specific pathogens. 
+
+## Data Source
+
+Data for making this app is from the [IHME website](https://ghdx.healthdata.org/) at:
+
+[https://ghdx.healthdata.org/record/ihme-data/global-mortality-33-bacterial-pathogens-estimates-2019](https://ghdx.healthdata.org/record/ihme-data/global-mortality-33-bacterial-pathogens-estimates-2019)
+
+Researchers at IHME and the University of Oxford produced estimates of deaths and years of life lost (YLLs) associated with bacterial infections caused by 33 pathogens across 204 locations in 2019.
+
+
+```{r eval=FALSE}
+library(downloader)
+url <- "https://ghdx.healthdata.org/sites/default/files/record-attached-files/IHME_AMR_PATHOGEN_DATA_Y2022M11D21.zip"
+download(url, dest="dataset.zip", mode="wb") 
+unzip ("dataset.zip", exdir = "data")
+unlink("dataset.zip")
+```
+
+
+## How to use it
+
+The user can select a Country, and the app will show the polygon with a centroid indicating its name. Then to investigate the rate of deaths or the YLLs on the type of pathogens which affect some infectious syndromes a selection box let the use choose among the type of measure and the syndromes. 
+
+A radio button is used to switch between "Deaths" or "YLLs" rates, while 
+
+
+
+## Code snippets
+
+
+
